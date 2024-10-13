@@ -1,43 +1,25 @@
 package tn.esprit.gestionzoo.main;
 
 import tn.esprit.gestionzoo.entities.Animal;
+import tn.esprit.gestionzoo.entities.*;
 import tn.esprit.gestionzoo.entities.Zoo;
 
 public class ZooManagement{
     public static void main(String[] args) {
-        Animal lion=new Animal("Félins","Simba",5,true);
-        lion.displayAnimal();
-        Animal elephant= new Animal("Éléphantidés", "Babar", 10, true);
-        Animal giraffe= new Animal("Ruminants", "Olga", 7, true);
+        Animal animal = new Animal("Canidés", "Loup", 5, true);
+        Aquatic aquaticAnimal = new Aquatic("Poissons", "Poisson-Clown", 2, false, "Récif de corail");
+        Terrestrial terrestrialAnimal = new Terrestrial("Félins", "Tigre", 8, true, 4);
+        Dolphin dolphin = new Dolphin("Cétacés", "Dauphin", 6, true, "Océan", 25.5f);
+        Penguin penguin = new Penguin("Oiseaux", "Pingouin", 3, false, "Antarctique", 100.0f);
 
-        Zoo myZoo=new Zoo("Central Park tn.esprit.gestionzoo.entities.Zoo","Madagascar");
-        myZoo.displayZoo();
+        System.out.println(animal);
+        System.out.println(aquaticAnimal);
+        System.out.println(terrestrialAnimal);
+        System.out.println(dolphin);
+        System.out.println(penguin);
 
-        int indiceLion = myZoo.searchAnimal(lion);
-        System.out.println("Lion trouvé à l'indice : " + indiceLion);
-
-        Animal secondLion = new Animal("Félins", "Mufasa", 5, false);
-        int indiceSecondLion = myZoo.searchAnimal(secondLion);
-        System.out.println("Autre lion trouvé à l'indice : " + indiceSecondLion);
-
-        Animal giraffe2=new Animal("Ruminants", "Olga", 7, true);
-        System.out.println(myZoo.addAnimal(giraffe2));
-
-        Animal tiger = new Animal("Félins", "Tigrou", 4, false);
-        myZoo.removeAnimal(tiger);
-
-        System.out.println("Le zoo est plein : " + myZoo.isZooFull());
-
-        Zoo zoo1=new Zoo("Belvédaire","Tunis");
-        Zoo zoo2=new Zoo("Friguia","Hammamet");
-        Zoo largerZoo= Zoo.comparerZoo(zoo1, zoo2);
-
-        /*lion.family="Félins";
-        lion.name="Simba";
-        lion.age=5;
-        lion.isMammal=true;*/
-        /*myZoo.name="Central Park tn.esprit.gestionzoo.entities.Zoo";
-        myZoo.city="Madagascar";
-        myZoo.nbrCages=23;*/
+        aquaticAnimal.swim();
+        dolphin.swim();
+        penguin.swim();
     }
 }

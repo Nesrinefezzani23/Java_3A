@@ -4,14 +4,14 @@ public class Zoo {
     Animal[] animals;
     String name;
     String city;
-    final int nbrCages;
+    int nbrCages;
     int nbrAnimals;
     public Zoo (String name,String city)
     {
         animals = new Animal[nbrCages];
         setName(name);
         this.city = city;
-        this.nbrCages = 25;
+        this.nbrCages = nbrCages;
     }
     public void displayZoo() {
         System.out.println("Animaux dans le zoo " + name + " :");

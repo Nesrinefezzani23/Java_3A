@@ -21,18 +21,41 @@ public class Animal {
     }
     @Override
     public String toString() {
-        return "tn.esprit.gestionzoo.entities.Animal{" +
-                "family='" + family + '\'' +
-                ", name='" + name + '\'' +
-                ", age=" + age +
-                ", isMammal=" + isMammal +
-                '}';
+        return "Animal: Family='" + family + "', Name='" + name + "', Age=" + age + " years, Is Mammal=" + isMammal;
     }
+
     public void setAge(int age) {
         if (age >= 0) {
             this.age = age;
         } else {
             System.out.println("L'âge d'un animal ne peut pas être négatif.");
         }
+    }
+    public String getFamily() {
+        return family;
+    }
+
+    public void setFamily(String family) {
+        this.family = family;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public boolean isMammal() {
+        return isMammal;
+    }
+
+    public void setMammal(boolean isMammal) {
+        this.isMammal = isMammal;
     }
 }
