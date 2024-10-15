@@ -1,7 +1,7 @@
 package tn.esprit.gestionzoo.entities;
 
 
-public sealed class Aquatic extends Animal permits Dolphin, Penguin{
+public sealed abstract class Aquatic extends Animal permits Dolphin, Penguin{
     String habitat;
 
     public Aquatic(String family,String name,int age,boolean isMammal, String habitat) {
@@ -9,7 +9,23 @@ public sealed class Aquatic extends Animal permits Dolphin, Penguin{
         this.habitat = habitat;
     }
 
-    // Getters et Setters
+    @Override
+    /*public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (!(obj instanceof Aquatic)) return false;
+        Aquatic other = (Aquatic) obj;
+        return this.getName().equals(other.getName()) &&
+                this.getAge() == other.getAge() &&
+                this.habitat.equals(other.habitat);
+    }*/
+    public boolean equals(Object obj) {
+        if (obj == null) return false; // Vérifie si l'objet est nul
+        if (obj instanceof Aquatic aquatic) { // Vérifie si l'objet est une instance d'Aquatic
+            return age == aquatic.age && name.equals(aquatic.name) && habitat.equals(aquatic.habitat); // Compare l'âge, le nom et l'habitat
+        }
+        return false; // Retourne faux si ce n'est pas un Aquatic
+    }
+
     public String getHabitat() {
         return habitat;
     }
@@ -22,7 +38,5 @@ public sealed class Aquatic extends Animal permits Dolphin, Penguin{
         return super.toString() + ", Habitat='" + habitat + "'";
     }
 
-    public void swim() {
-        System.out.println("This aquatic animal is swimming.");
-    }
+    public abstract void swim();
 }
