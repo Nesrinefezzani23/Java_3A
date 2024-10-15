@@ -10,14 +10,6 @@ public sealed abstract class Aquatic extends Animal permits Dolphin, Penguin{
     }
 
     @Override
-    /*public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (!(obj instanceof Aquatic)) return false;
-        Aquatic other = (Aquatic) obj;
-        return this.getName().equals(other.getName()) &&
-                this.getAge() == other.getAge() &&
-                this.habitat.equals(other.habitat);
-    }*/
     public boolean equals(Object obj) {
         if (obj == null) return false; // Vérifie si l'objet est nul
         if (obj instanceof Aquatic aquatic) { // Vérifie si l'objet est une instance d'Aquatic
